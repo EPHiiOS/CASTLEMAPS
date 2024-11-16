@@ -4,12 +4,12 @@ var map = new ol.Map({
     renderer: 'canvas',
     layers: layersList,
     view: new ol.View({
-         maxZoom: 28, minZoom: 1
+         maxZoom: 18, minZoom: 1
     })
 });
 
 //initial view - epsg:3857 coordinates if not "Match project CRS"
-map.getView().fit([-19998372.179087, -10047199.482821, -19989733.812691, -10041401.520824], map.getSize());
+map.getView().fit([-19999339.552379, -10047601.023893, -19986397.153728, -10040536.698207], map.getSize());
 
 ////small screen definition
     var hasTouchScreen = map.getViewport().classList.contains('ol-touch');
@@ -112,7 +112,7 @@ var featureOverlay = new ol.layer.Vector({
     updateWhileInteracting: true // optional, for instant visual feedback
 });
 
-var doHighlight = true;
+var doHighlight = false;
 var doHover = true;
 
 function createPopupField(currentFeature, currentFeatureKeys, layer) {
@@ -452,8 +452,8 @@ var bottomRightContainerDiv = document.getElementById('bottom-right-container')
 //layer search
 
 var searchLayer = new SearchLayer({
-    layer: lyr_RollsStep1_1,
-    colName: 'Date',
+    layer: lyr_ROLLSStep1_2,
+    colName: 'Day',
     zoom: 10,
     collapsed: true,
     map: map
